@@ -12,7 +12,6 @@ public class cadastro {
         Calendar cd = Calendar.getInstance();
         int hora = cd.get(Calendar.HOUR_OF_DAY);
 
-        double cem = 100.00;
         System.out.println(" ");
 
         // informa a data atual
