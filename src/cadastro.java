@@ -86,6 +86,7 @@ public class cadastro {
         System.out.println("Sua cor de pele: " + color);
         System.out.println("Sua data de nascimento: " + day + " de " + nameMonth + " de " + year);
 
+
     }
 }
 
