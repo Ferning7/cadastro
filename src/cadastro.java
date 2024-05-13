@@ -18,7 +18,7 @@ public class cadastro {
         cd.set(2024, Calendar.MAY, 28);
         Date data = cd.getTime();
         DateFormat formataData = DateFormat.getDateInstance();
-        System.out.println(formataData.format(data));
+
 
         // analisa a hora atual e imprime um bom dia, tarde ou noite
         if (hora > 6 && hora < 12) {
@@ -29,8 +29,11 @@ public class cadastro {
             System.out.println("Boa Noite!");
         }
 
+        System.out.println("Hoje é "+formataData.format(data));
+        System.out.println(" ");
+
         // início do cadastro
-        System.out.println("Bem vindo(a) à area de cadastro do usuário!");
+        System.out.println("Seja bem vindo(a) à area de cadastro do usuário!");
         System.out.println(" ");
 
         // entrada de dados
@@ -50,25 +53,38 @@ public class cadastro {
         System.out.print("Insira sua altura (x,xx): ");
         double altura = sc.nextDouble();
 
-        System.out.print("Insira sua comida favorita: ");
-        String food = sc.next();
-
         System.out.print("Cor de pele: ");
         String color = sc.next();
 
         // converte o ano inserido para idade
         int age = 2024 - year;
 
+        // converte o numero do mês para o nome do mês inserido
+        String nameMonth = switch (month) {
+            case 1 -> "Janeiro";
+            case 2 -> "Fevereiro";
+            case 3 -> "Março";
+            case 4 -> "Abril";
+            case 5 -> "Maio";
+            case 6 -> "Junho";
+            case 7 -> "Julho";
+            case 8 -> "Agosto";
+            case 9 -> "Setembro";
+            case 10 -> "Outubro";
+            case 11 -> "Novembro";
+            case 12 -> "Dezembro";
+            default -> "Mês Inválido";
+        };
+
         System.out.println(" ");
 
         // saída de dados
         System.out.println("----- SUAS INFORMAÇÕES -----");
         System.out.println("Seu nome é: " + name + " " + midname);
-        System.out.println("Sua idade: "+ age);
-        System.out.printf("Sua altura: %.2f%n ", altura);
+        System.out.println("Sua idade: " + age);
+        System.out.println("Sua altura:  " + altura);
         System.out.println("Sua cor de pele: " + color);
-        System.out.println("Sua comida favorita: " + food);
-        System.out.println("Sua data de nascimento: " + day + "/" + month + "/" + year);
+        System.out.println("Sua data de nascimento: " + day + " de " + nameMonth + " de " + year);
 
     }
 }
