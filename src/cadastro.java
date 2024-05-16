@@ -1,6 +1,8 @@
 //Importa bibliotecas
-import java.text.DateFormat;
-import java.util.Date;
+
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 import java.util.Calendar;
 
@@ -15,10 +17,10 @@ public class cadastro {
         System.out.println(" ");
 
         // informa a data atual
-        cd.set(2024, Calendar.MAY, 28);
-        Date data = cd.getTime();
-        DateFormat formataData = DateFormat.getDateInstance();
+        System.out.println("Data de hoje: " + LocalDate.now());
+        System.out.println("Horário de acesso: " + Time.valueOf(LocalTime.now()));
 
+        System.out.println(" ");
 
         // analisa a hora atual e imprime um bom dia, tarde ou noite
         if (hora > 6 && hora < 12) {
@@ -29,7 +31,6 @@ public class cadastro {
             System.out.println("Boa Noite!");
         }
 
-        System.out.println("Hoje é "+formataData.format(data));
         System.out.println(" ");
 
         // início do cadastro
@@ -39,22 +40,29 @@ public class cadastro {
         // entrada de dados
         System.out.print("Insira seu Nome: ");
         String name = sc.next();
-        System.out.print("Insira seu Sobrenome: ");
         String midname = sc.next();
 
-        System.out.println("Insira sua data de nascimento dd/MM/yyyy");
-        System.out.print("Dia: ");
+        System.out.println("Insira sua data de nascimento: dd MM yyyy");
         int day = sc.nextInt();
-        System.out.print("Mes: ");
         int month = sc.nextInt();
-        System.out.print("Ano: ");
         int year = sc.nextInt();
+
+        System.out.print("Insira sua profissão: ");
+        String pro = sc.next();
+        String fi = sc.next();
+        String ssao = sc.next();
+
 
         System.out.print("Insira sua altura (x,xx): ");
         double altura = sc.nextDouble();
 
-        System.out.print("Cor de pele: ");
-        String color = sc.next();
+        System.out.print("Nacionalidade: ");
+        String nac = sc.next();
+
+        System.out.print("Endereço: ");
+        String rua = sc.next();
+        String nameR = sc.next();
+        String nameR2 = sc.next();
 
         // converte o ano inserido para idade
         int age = 2024 - year;
@@ -76,15 +84,22 @@ public class cadastro {
             default -> "Mês Inválido";
         };
 
+        sc.close();
+
         System.out.println(" ");
 
+
         // saída de dados
-        System.out.println("----- SUAS INFORMAÇÕES -----");
-        System.out.println("Seu nome é: " + name + " " + midname);
-        System.out.println("Sua idade: " + age);
-        System.out.println("Sua altura:  " + altura);
-        System.out.println("Sua cor de pele: " + color);
-        System.out.println("Sua data de nascimento: " + day + " de " + nameMonth + " de " + year);
+        System.out.println("--------- SUAS INFORMAÇÕES ---------");
+        System.out.println(" ");
+        System.out.println("Nome: " + name + " " + midname);
+        System.out.println("Idade: " + age);
+        System.out.printf("Profissão: %s %s %s %n", pro, fi, ssao);
+        System.out.println("Data de nascimento: " + day + " de " + nameMonth + " de " + year);
+        System.out.printf("Endereço:  %s %s %s %n", rua, nameR, nameR2);
+        System.out.println("Nacionalidade: " + nac);
+        System.out.println("Altura:  " + altura);
+
 
 
     }
