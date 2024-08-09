@@ -3,16 +3,23 @@
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Calendar;
 
 public class cadastro {
     public static void main(String[] args) {
 
-        // variáveis de calendario, scanner e hora
+        // variáveis
         Scanner sc = new Scanner(System.in);
         Calendar cd = Calendar.getInstance();
         int hora = cd.get(Calendar.HOUR_OF_DAY);
+
+        int year = 0, month = 0, day = 0;
+        String name = " ", cidade = " ", cep = " ", email = " ", num = " ";
+        String Rua = " ", Bairro = " ";
+        int NumeroCasa = 0;
+        String senha = " ";
 
         System.out.println(" ");
 
@@ -22,7 +29,7 @@ public class cadastro {
 
         System.out.println(" ");
 
-        // analisa a hora atual e imprime um bom dia, tarde ou noite
+        // analisa a hora atual e imprime um bom dia, tarde ou noite *
         if (hora > 6 && hora < 12) {
             System.out.println("Bom dia!");
         } else if (hora > 12 && hora < 18) {
@@ -33,36 +40,53 @@ public class cadastro {
 
         System.out.println(" ");
 
-        // início do cadastro
-        System.out.println("Seja bem vindo(a) à area de cadastro do usuário!");
+        System.out.println("Bem vindo ào Nagacaborus!");
+        System.out.println("-> Clínica veterinária de animais marinhos");
         System.out.println(" ");
 
-        // entrada de dados
-        System.out.print("Insira seu Nome: ");
-        String name = sc.next();
-        String midname = sc.next();
+        System.out.println("Já possuí conta? S/N");
+        String escolha = sc.nextLine();
+        System.out.println("-----------------------------------------------------");
+        System.out.println(" ");
 
-        System.out.println("Insira sua data de nascimento: dd MM yyyy");
-        int day = sc.nextInt();
-        int month = sc.nextInt();
-        int year = sc.nextInt();
+        if (Objects.equals(escolha, "N")) {
+            System.out.println("Então vamos começar com o seu cadastro!");
+            System.out.println(" ");
 
-        System.out.print("Insira sua profissão: ");
-        String pro = sc.next();
-        String fi = sc.next();
-        String ssao = sc.next();
+            System.out.println("----| Dados Pessoais");
 
+            System.out.print("Nome Completo: ");
+            name = sc.nextLine();
 
-        System.out.print("Insira sua altura (x,xx): ");
-        double altura = sc.nextDouble();
+            System.out.print("Número de Celular: ");
+            num = sc.nextLine();
 
-        System.out.print("Nacionalidade: ");
-        String nac = sc.next();
+            System.out.println("Insira sua data de nascimento (dd MM yyyy):");
+            day = sc.nextInt();
+            month = sc.nextInt();
+            year = sc.nextInt();
 
-        System.out.print("Endereço: ");
-        String rua = sc.next();
-        String nameR = sc.next();
-        String nameR2 = sc.next();
+            System.out.println(" ");
+            System.out.println("----| Endereço");
+            System.out.println(" ");
+
+            System.out.print("CEP: ");
+            cep = sc.nextLine();
+            if (cep == "30692-502") {
+                Rua = "Travessa Vinhedo";
+                Bairro = "Itaipu";
+                System.out.print("Número: ");
+                NumeroCasa = sc.nextInt();
+            }
+
+        } else {
+            System.out.println("----| Iniciar Sessão");
+            System.out.println(" ");
+            System.out.println("Email:");
+            email = sc.nextLine();
+            System.out.println("Senha:");
+            senha = sc.nextLine();
+        }
 
         // converte o ano inserido para idade
         int age = 2024 - year;
@@ -84,24 +108,27 @@ public class cadastro {
             default -> "Mês Inválido";
         };
 
-        sc.close();
 
         System.out.println(" ");
 
+        // Mostrar dados
+        System.out.println("Deseja ver seus dados? S/N");
+        String escolha2 = sc.nextLine();
 
-        // saída de dados
-        System.out.println("--------- SUAS INFORMAÇÕES ---------");
-        System.out.println(" ");
-        System.out.println("Nome: " + name + " " + midname);
-        System.out.println("Idade: " + age);
-        System.out.printf("Profissão: %s %s %s %n", pro, fi, ssao);
-        System.out.println("Data de nascimento: " + day + " de " + nameMonth + " de " + year);
-        System.out.printf("Endereço:  %s %s %s %n", rua, nameR, nameR2);
-        System.out.println("Nacionalidade: " + nac);
-        System.out.println("Altura:  " + altura);
+        if (Objects.equals(escolha, "S")) {
+            System.out.println("--------- SUAS INFORMAÇÕES ---------");
+            System.out.println(" ");
+            System.out.println("Nome: " + name);
+            System.out.println("Idade: " + age);
+            System.out.println("Data de nascimento: " + day + " de " + nameMonth + " de " + year);
 
+            System.out.printf("Cidade:  %s%n", cidade);
+            System.out.println("Endereço: " + cep);
+            System.out.println("Contatos: " + num);
+            System.out.println("");
+        } else {
 
-
+        }
     }
 }
 
