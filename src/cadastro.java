@@ -70,16 +70,17 @@ public class cadastro {
             System.out.println("----| Endereço");
             System.out.println(" ");
 
-            System.out.print("CEP: ");
-            cep = sc.nextLine();
-            if (cep == "30692-502") {
-                Rua = "Travessa Vinhedo";
-                Bairro = "Itaipu";
-                System.out.print("Número: ");
-                NumeroCasa = sc.nextInt();
-            }
+            System.out.print("Cidade: ");
+            cidade = sc.nextLine();
 
-            
+            System.out.println("Bairro: ");
+            Bairro = sc.nextLine();
+
+            System.out.print("Rua: ");
+            Rua = sc.nextLine();
+
+            System.out.print("Número: ");
+            NumeroCasa = sc.nextByte();
         } else {
             System.out.println("----| Iniciar Sessão");
             System.out.println(" ");
