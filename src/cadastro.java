@@ -79,6 +79,7 @@ public class cadastro {
                 NumeroCasa = sc.nextInt();
             }
 
+            
         } else {
             System.out.println("----| Iniciar Sessão");
             System.out.println(" ");
