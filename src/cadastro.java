@@ -61,19 +61,18 @@ public class cadastro {
             System.out.print("Número de Celular: ");
             num = sc.nextLine();
 
-            System.out.println("Insira sua data de nascimento (dd MM yyyy):");
+            System.out.print("Insira sua data de nascimento (dd MM yyyy):");
             day = sc.nextInt();
             month = sc.nextInt();
             year = sc.nextInt();
 
             System.out.println(" ");
             System.out.println("----| Endereço");
-            System.out.println(" ");
 
             System.out.print("Cidade: ");
             cidade = sc.nextLine();
 
-            System.out.println("Bairro: ");
+            System.out.print("Bairro: ");
             Bairro = sc.nextLine();
 
             System.out.print("Rua: ");
@@ -81,7 +80,8 @@ public class cadastro {
 
             System.out.print("Número: ");
             NumeroCasa = sc.nextByte();
-        } else {
+        }
+        else {
             System.out.println("----| Iniciar Sessão");
             System.out.println(" ");
             System.out.println("Email:");
@@ -125,11 +125,9 @@ public class cadastro {
             System.out.println("Data de nascimento: " + day + " de " + nameMonth + " de " + year);
 
             System.out.printf("Cidade:  %s%n", cidade);
-            System.out.println("Endereço: " + cep);
+            System.out.println("Endereço: " + cidade + ", " + Bairro + ", " + Rua + ", "+ NumeroCasa);
             System.out.println("Contatos: " + num);
             System.out.println("");
-        } else {
-
         }
     }
 }
